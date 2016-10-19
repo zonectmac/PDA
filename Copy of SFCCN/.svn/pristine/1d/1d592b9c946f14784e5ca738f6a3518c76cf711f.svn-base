@@ -1,0 +1,196 @@
+package com.sfcservice.pda.home;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.xmlpull.v1.XmlPullParserException;
+
+import com.sfcservice.bean.NewSkuBean;
+import com.sfcservice.component.AsyncLoadImage;
+import com.sfcservice.component.HorizontalListView;
+import com.sfcservice.log.SFCNewProLog;
+import com.sfcservice.log.SFCScanLog;
+import com.sfcservice.net.MyConnection;
+import com.sfcservice.pda.R;
+import com.sfcservice.pda.config.MyConfig;
+import com.sfcservice.pda.config.MyTool;
+
+
+
+
+
+
+
+
+
+
+
+
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.ColorStateList;
+import android.content.res.XmlResourceParser;
+import android.graphics.Color;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
+
+public class ScanMain extends Activity {
+	private TextView tv;
+	private TextView tvShow;
+	private String status="0";
+	private String  result,cause;
+	private Handler handler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case MyConfig.ACCESSS:
+				tv.setText("正在检测数据...");
+				break;
+			case MyConfig.ACCESSF:
+				MyTool.playFailedSound();
+				//tv.setVisibility(View.INVISIBLE);
+				MyTool.toastShow(ScanMain.this, "连接服务器失败");
+				break;
+			case MyConfig.RESULTS:
+				MyTool.playSuccessSound();
+				status = "2";
+				tv.setTextColor(Color.rgb(0, 238, 0));
+				
+				
+				MyTool.toastShow(ScanMain.this, "恭喜");
+				tv.setText(result+" 扫描成功");
+				break;
+			case MyConfig.RESULTF:
+				MyTool.playFailedSound();
+				//Bundle data = msg.getData();
+				String strMsg = MyConnection.getMyConnection().getMsg();
+				MyTool.toastShow(ScanMain.this, strMsg);
+				tv.setTextColor(Color.rgb(248, 2, 2));
+				status = "3";
+				cause = strMsg;
+				tv.setText(strMsg);
+				break;
+			default:
+				break;
+			}
+			String date = MyTool.getTime();
+			MyConnection.getMyConnection()
+			.saveData(
+					"scan_record",
+					new String[] { "user_login_id", "user_code",
+							"storage_date", "upload_date", "status",
+							"cause" },
+					new String[] {
+							MyConfig.getMyConfig().getUsers()[0],
+							result,
+							date, date,
+							status,cause });
+		};
+	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		findViewById(R.id.testbtn).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent it = new Intent(ScanMain.this, ScanCapture.class);
+				startActivityForResult(it, 1);
+			}
+		});
+		
+		findViewById(R.id.btn_log).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//Intent it = new Intent(ScanMain.this, SFCScanLog.class);
+				Intent intent = new Intent(ScanMain.this, SFCScanLog.class);
+				startActivity(intent);
+				//startActivityForResult(it, 1);
+			}
+		});
+		
+		findViewById(R.id.btn_back).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+				return ;
+			}
+		});
+		
+		tv = (TextView) findViewById(R.id.testtv);
+		
+		
+		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		switch (requestCode) {
+		case 1:
+			if(data != null){
+				result = data.getStringExtra("result");
+				//String time = MyTool.getSFCTime();
+				if(result != null){
+					
+
+					// 获取系统时间
+
+					String date = MyTool.getTime();
+					tv.setText(result+" >> "+date);
+					//status = "3";
+					this.getData(result, date);
+					// 存储数据
+					
+				}
+					
+			}
+			break;
+
+		default:
+			break;
+		}
+		
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	// 获取数据
+		private void getData(String userCode,String date) {
+			MyConnection.getMyConnection().acceptServer(
+					MyConfig.URL_COMMON,
+					MyConnection.getMyConnection().writeJsonWithUserInfo(
+							new String[] { "usercode","datetime" },
+							new String[] { userCode, date},
+							"pickupScan"), handler);
+		}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}

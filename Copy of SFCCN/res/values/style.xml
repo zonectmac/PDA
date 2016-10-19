@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+    </style>
+    
+ <style name="AppTheme" parent="AppBaseTheme">
+        <item name="text_cl">#ffffff</item>
+        <item name="button_bg">#000000</item>
+        <item name="activity_bg">#ffffff</item>
+          <item name="android:buttonStyle">@style/SFCButton</item>
+    </style>
+    <style name="imgActivityBackground">
+        <item name="android:windowBackground">@color/halfTransparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="disOrderActivityBackground">
+        <item name="android:windowBackground">@color/littleTransparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="SFCDialogStyle">
+        <item name="android:windowBackground">@color/bigTransparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+	<style name="SFCButton" parent="@android:style/Widget.Button">
+		<item name="android:background">@drawable/btn_common_radius</item>
+		<item name="android:paddingLeft">10dp</item>
+		<item name="android:paddingRight">10dp</item>
+		<item name="android:paddingBottom">5dp</item>
+		<item name="android:paddingTop">5dp</item>
+		<item name="android:textColor">#0486c1</item>
+		<item name="android:minHeight">5dip</item>
+        <item name="android:minWidth">5dip</item>
+	</style>
+</resources>

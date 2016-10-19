@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+      android:background="#FFFFFF">
+    
+    <LinearLayout 
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+       >
+        
+        <TextView 
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+              android:textSize="18sp"
+              android:gravity="right"
+           android:textColor="@color/title_text"
+           android:text="@string/LockbeltNum"
+          
+            />
+          <EditText
+           android:id="@+id/tv_lockNum"
+         android:layout_width="0dp"
+            android:layout_weight="3.5"
+           android:layout_height="30dp"
+           android:background="@drawable/et_background"
+           android:layout_marginLeft="10dp"
+           android:ems="10"
+           android:gravity="center"
+           android:singleLine="true"
+           android:textColor="@color/title_text"
+           android:textSize="14sp" >
+
+           <requestFocus />
+       </EditText>
+       <ImageView
+           android:id="@+id/iv_scancode"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_marginRight="20dp"
+           android:layout_marginLeft="10dp"
+           android:src="@drawable/scanmode2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_1"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="40dp" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+             android:gravity="right"
+            android:text="@string/type"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="35dp"
+            android:dropDownWidth="fill_parent"
+            android:spinnerMode="dropdown"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="35dp"
+            android:popupBackground="#F9F9F9"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+    </LinearLayout>
+	<LinearLayout 
+    android:id="@+id/ll_3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/ll_2"
+      android:gravity="center"
+        android:orientation="horizontal"
+          android:paddingLeft="20dp"
+        android:paddingRight="40dp"
+          android:layout_marginTop="10dp">
+    
+	    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/weight"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+	    <EditText
+           android:id="@+id/et_weight"
+         android:layout_width="0dp"
+            android:layout_weight="4"
+           android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="35dp"
+           android:background="@drawable/et_background"
+           android:ems="10"
+           android:singleLine="true"
+           android:gravity="center"
+           android:inputType="number"
+            android:digits="0123456789."
+           android:textColor="@color/title_text"
+           android:textSize="18sp" />
+	    
+	</LinearLayout>
+	<LinearLayout 
+    android:id="@+id/ll_4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/ll_3"
+      android:gravity="center"
+        android:orientation="horizontal"
+          android:paddingLeft="20dp"
+        android:paddingRight="40dp"
+          android:layout_marginTop="10dp">
+    
+	    <TextView
+            android:id="@+id/textView4"
+          android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+           android:gravity="right"
+            android:text="@string/totalnum"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+	    <EditText
+           android:id="@+id/et_totalNum"
+          android:layout_width="0dp"
+            android:layout_weight="4"
+           android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="35dp"
+           android:background="@drawable/et_background"
+           android:ems="10"
+           android:gravity="center"
+           android:inputType="number"
+           android:textColor="@color/title_text"
+           android:textSize="18sp" />
+	    
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:id="@+id/ll_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/ll_4"
+      android:gravity="center_horizontal"
+        android:orientation="horizontal"
+	    android:layout_marginTop="20dp"
+	    >
+	    
+	  <Button
+	      android:id="@+id/btn_commit"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:background="@drawable/btn_common_radius"
+	      android:text="@string/commit"
+	      android:textColor="@color/title_text"
+	      android:textSize="18sp" />
+  
+	    <Button
+	        android:id="@+id/btn_setAgain"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="30dp"
+	        android:background="@drawable/btn_common_radius"
+	        android:text="@string/setAgain"
+	        android:textColor="@color/title_text"
+	        android:textSize="18sp" />
+
+	</LinearLayout>
+
+</RelativeLayout>

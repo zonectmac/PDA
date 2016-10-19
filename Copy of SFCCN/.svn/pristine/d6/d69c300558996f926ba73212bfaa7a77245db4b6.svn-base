@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SFCPDAActivity!</string>
+    <string name="app_name">SFC</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="msg_default_status">将二维码放入框内，即可自动扫描</string>
+    
+
+</resources>

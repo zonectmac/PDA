@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    
+  <RelativeLayout 
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+    android:gravity="center_vertical">
+      <EditText 
+          android:id="@+id/et_take_search"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:background="@drawable/et_background"
+          android:ems="13"
+            android:gravity="center"
+         android:hint="@string/inputIdLog2"
+         android:layout_marginLeft="10dp"
+         android:textSize="16sp"
+         android:singleLine="true" >
+
+         <requestFocus />
+      </EditText>
+
+       <Button
+           android:id="@+id/btn_take_search"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/et_take_search"
+           android:layout_alignTop="@+id/et_take_search"
+           android:layout_toRightOf="@+id/et_take_search"
+           android:background="@drawable/btn_common_radius"
+           android:layout_alignParentRight="true"
+           android:text="@string/search"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:gravity="center"
+           android:textColor="@color/title_text"
+           android:textSize="16sp" />
+      
+  </RelativeLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="2dp"
+        layout="@layout/layout_head_title"
+       />
+
+    <ListView
+        android:id="@+id/lv_takeOver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:divider="@null"
+        >
+    </ListView>
+
+</LinearLayout>

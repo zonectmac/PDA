@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:id="@+id/line_scan"
+    android:background="#FFFFFF" >
+
+    <ScrollView 
+          android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/rl_title"
+         >
+     <RelativeLayout 
+         android:id="@+id/RelativeLayout2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         >
+    <include
+        android:id="@+id/scan_pickup_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/tv_pickupType"
+        layout="@layout/scan_pickup_item"/>
+  
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/scan_pickup_item"
+        android:background="#F9F9F9" 
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_clientId_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignParentRight="true"
+              android:textSize="16sp"
+            android:textColor="@color/title_text"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_below="@+id/textView2"
+              android:textSize="18sp"
+            android:textColor="@color/title_text"
+            android:text="@string/clientName" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/clientID"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/title_text"
+            android:layout_marginTop="5dp"
+          android:layout_below="@+id/textView4"
+            />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="10dp"
+            android:text="@string/clientPhone"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:text="@string/clientManager"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView5"
+            android:text="@string/exceptPickTime"
+            android:textColor="@color/title_text"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_exceptTime"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView7"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/textView7"
+            android:background="@null"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right"
+            android:inputType="textPersonName"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" 
+            >
+          
+        </EditText>
+<View
+    android:id="@+id/view2" 
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="@color/title_text"
+    android:layout_below="@+id/et_exceptTime"
+    android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="10dp"
+             android:textColor="@color/title_text"
+            android:textSize="18sp"
+            android:text="@string/pickAddress" />
+
+        <TextView
+            android:id="@+id/tv_clientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView1"
+            android:layout_alignRight="@+id/tv_clientId_text"
+            android:text="TextView"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_clientManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView7"
+            android:layout_alignRight="@+id/et_exceptTime"
+            android:text="TextView"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_pickupAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignRight="@+id/view2"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="5dp"
+            android:background="@null"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="left"
+            android:inputType="textPersonName"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/tv_clientPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView5"
+            android:layout_alignParentRight="true"
+            android:text="TextView"
+            android:textColor="@color/title_text"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:layout_above="@+id/textView5"
+            android:layout_toLeftOf="@+id/tv_clientPhone"
+            android:src="@drawable/phonecalling" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_pickupType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:textSize="22sp" />
+
+    </RelativeLayout>  
+</ScrollView>
+    
+
+</RelativeLayout>

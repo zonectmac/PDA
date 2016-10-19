@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="DuplicateIds">
+        <ignore path="res/layout/sfc_dis_offline_tab.xml" />
+    </issue>
+    <issue id="HardcodedText">
+        <ignore path="res/layout/sfc_dis_offline_tab.xml" />
+    </issue>
+    <issue id="LocalSuppress" severity="fatal" />
+    <issue id="UnusedResources">
+        <ignore path="res/layout/sfc_dis_offline_tab.xml" />
+    </issue>
+</lint>
